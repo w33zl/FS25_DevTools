@@ -1,0 +1,7 @@
+deploy/output/*
+deploy/7za.exe
+FS22_DevTools/DevTools_v2.lua
+FS22_DevTools/pixel_spy.lua
+FS22_000_DevTools/DevTools_v2.lua
+FS22_000_DevTools/pixel_spy.lua
+deploy/releases/FS22_000_DevTools_v1.0.0.zip

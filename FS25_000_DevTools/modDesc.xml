@@ -1,0 +1,132 @@
+<?xml version="1.0" standalone="no"?>
+<modDesc descVersion="91" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/NMC-TBone/xml-schema/main/modDesc.xsd">
+    <author>w33zl</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Power Tools: Developer</en>
+    </title>
+    <description>
+<en><![CDATA[
+Power Tools: Developer is a quality-of-life mod for modders that works well alongside Power Tools, Easy Dev Controls and Global Explorer. 
+
+An improved style of visualizing in-game tables, together with the posibility to save tables to well-formed Lua files, opens up a new way of understanding the FS object model!
+
+# FEATURES:
+- New console commands to restart the game (see below for details)
+- Console command to print Lua table contents to either the console/log or a separate file
+- Console command to clear the log file
+
+# CONSOLE COMMANDS:
+- dtRestart (or 'r'): Restarts the current savegame using a soft restart (slightly faster than a hard reset)
+- dtRestartHard (or 'rr'): Performs a hard reset (this will ensure everyhing is unloaded from memory)
+- dtTable: Prints the contents of a Lua table to the console/log
+- dtSaveTable: Save the contents of a Lua table to a file (3-4x times faster than printing a table to the log)
+- dtVisualizeTable [beta]: An improved way of printing tables to the log, both faster, more memory efficient and visually improved.
+- dtClearLog (or 'cls'): Clears the log.txt file to get a fresh log (especially useful when using the restart command)
+
+# CAUTION!
+The console commands to restart the game will do this -without- asking you to save your progress first. I.e. you risk loosing progress if you are not cautious!
+
+# SAVING TABLES
+The 'dtSaveTable' allows you to quickly dump a Lua table to disk in a well formatted Lua file, meaning you can load this file as a source file in the Lua interpeter or in-game. This has several uses cases, especially to understand the FS object model.
+
+Optionally you can choose the depth of the output, especially important when saving top level tables (e.g. g_currentMission) that may contain many child tabled and/or large tables. Thanks to a well optimized code it is still possible to save g_currentMission with some 5-6 levels of depth before the Lua engine starts to leak memory and becomes unstable (the default depth is set to 2).
+
+Example:
+To dump the g_currentMission table to a file you could use the command 'dtSaveTable g_currentMission currentMission.lua 1'. This would export the g_currentMission table to a file named 'currentMission.lua' and only including the direct descendants of g_currentMission. 
+
+Note: due to security restrictions, the generated .lua file will be stored in your 'My Games/FarmingSimulator2022/modSettings/FS22_000_DevTools' folder. 
+
+# PRINTING TABLES
+Similar to 'dtSaveTable', the command 'dtTable' can be used to output a table to the log. It takes the table name as mandatory parameter and the maxDepth as an optional parameter (with a default value of 2).
+
+Important! Due to the nature how FS prints to the log it is only recommended to fairly small tables and/or shallow structures (depth should not exceed 2-3). E.g. printing g_currentMission to the console with a depth of 4 will make FS consume some 10-15GB of system ram and then crash in a out-of-memory error. 
+
+If you need to print a deeper structure it is recommended to use 'dtSaveTable'.
+
+]]></en>
+<de><![CDATA[
+Power Tools: Developer ist ein Quality-of-Life-Mod für Modder, der gut mit Power Tools, Easy Dev Controls und Global Explorer zusammenarbeitet. 
+
+Ein verbesserter Stil der Visualisierung von Tabellen im Spiel, zusammen mit der Möglichkeit, Tabellen in wohlgeformten Lua-Dateien zu speichern, eröffnet einen neuen Weg, das FS-Objektmodell zu verstehen!
+
+# FEATURES:
+- Neue Konsolenbefehle zum Neustart des Spiels (siehe unten für Details)
+- Konsolenbefehl, um den Inhalt der Lua-Tabelle entweder auf der Konsole/im Log oder in einer separaten Datei auszugeben
+- Konsolenbefehl zum Löschen der Logdatei
+
+# KONSOLENBEFEHLE:
+- dtRestart (oder 'r'): Startet das aktuelle Spiel mit einem weichen Neustart (etwas schneller als ein harter Reset)
+- dtRestartHard (oder 'rr'): Führt einen harten Neustart durch (dadurch wird sichergestellt, dass alles aus dem Speicher entladen wird)
+- dtTable: Gibt den Inhalt einer Lua-Tabelle auf der Konsole/im Log aus
+- dtSaveTable: Speichert den Inhalt einer Lua-Tabelle in eine Datei (3-4x schneller als das Drucken einer Tabelle in das Log)
+- dtVisualizeTable [beta]: Ein verbessertes Verfahren zum Drucken von Tabellen in das Protokoll, das schneller, speichereffizienter und visuell verbessert ist.
+- dtClearLog (oder 'cls'): Löscht die Datei log.txt, um ein neues Protokoll zu erhalten (besonders nützlich bei Verwendung des Neustart-Befehls)
+
+# VORSICHT!
+Die Konsolenbefehle zum Neustart des Spiels werden dies tun, ohne Sie zu fragen, ob Sie Ihren Fortschritt speichern wollen. D.h. Sie riskieren, Ihren Fortschritt zu verlieren, wenn Sie nicht vorsichtig sind!
+
+# TABELLEN SPEICHERN
+Mit 'dtSaveTable' kann man schnell eine Lua-Tabelle in einer gut formatierten Lua-Datei auf der Festplatte speichern, d.h. man kann diese Datei als Quelldatei im Lua-Interpeter oder im Spiel laden. Dies hat mehrere Anwendungsfälle, insbesondere um das FS-Objektmodell zu verstehen.
+
+Optional kann man die Tiefe der Ausgabe wählen, was besonders wichtig ist, wenn man Tabellen der obersten Ebene (z.B. g_currentMission) speichert, die viele untergeordnete und/oder große Tabellen enthalten können. Dank eines gut optimierten Codes ist es immer noch möglich, g_currentMission mit einer Tiefe von 5-6 Ebenen zu speichern, bevor die Lua-Engine anfängt, Speicher zu verlieren und instabil wird (die Standardtiefe ist auf 2 eingestellt).
+
+Beispiel:
+Um die g_currentMission-Tabelle in eine Datei zu speichern, könnte man den Befehl 'dtSaveTable g_currentMission currentMission.lua 1' verwenden. Dies würde die g_currentMission-Tabelle in eine Datei mit dem Namen 'currentMission.lua' exportieren und nur die direkten Nachfahren von g_currentMission enthalten. 
+
+Hinweis: Aus Sicherheitsgründen wird die erzeugte .lua-Datei in eurem Ordner 'My Games/FarmingSimulator2022/modSettings/FS22_000_DevTools' gespeichert. 
+
+# TABELLEN AUSDRUCKEN
+Ähnlich wie 'dtSaveTable' kann auch der Befehl 'dtTable' verwendet werden, um eine Tabelle in das Protokoll auszugeben. Er nimmt den Tabellennamen als obligatorischen Parameter und die maxDepth als optionalen Parameter (mit einem Standardwert von 2).
+
+Wichtig! Aufgrund der Art, wie FS in das Protokoll druckt, wird es nur für relativ kleine Tabellen und/oder flache Strukturen empfohlen (die Tiefe sollte 2-3 nicht überschreiten). Wenn Sie z.B. g_currentMission mit einer Tiefe von 4 auf der Konsole ausgeben, verbraucht FS etwa 10-15 GB Speicherplatz und stürzt dann mit einem Out-of-Memory-Fehler ab. 
+
+Wenn Sie eine tiefere Struktur ausdrucken müssen, wird empfohlen, 'dtSaveTable' zu verwenden.
+]]></de>
+<fr><![CDATA[
+Power Tools : Developer est un mod de qualité de vie pour les moddeurs qui fonctionne bien avec Power Tools, Easy Dev Controls et Global Explorer. 
+
+Un style amélioré de visualisation des tables dans le jeu, ainsi que la possibilité de sauvegarder les tables dans des fichiers Lua bien formés, ouvrent une nouvelle façon de comprendre le modèle d'objet de FS !
+
+# CARACTÉRISTIQUES :
+- Nouvelles commandes de console pour redémarrer le jeu (voir ci-dessous pour plus de détails)
+- Commande console pour imprimer le contenu de la table Lua soit dans la console/log, soit dans un fichier séparé.
+- Commande console pour effacer le fichier log
+
+# COMMANDES DE LA CONSOLE :
+- dtRestart (ou 'r') : Redémarre la sauvegarde actuelle en utilisant un redémarrage en douceur (légèrement plus rapide qu'un redémarrage en dur).
+- dtRestartHard (ou 'rr') : Effectue un redémarrage dur (cela permet de s'assurer que tout est déchargé de la mémoire).
+- dtTable : Imprime le contenu d'une table Lua sur la console/log
+- dtSaveTable : Sauvegarde le contenu d'une table Lua dans un fichier (3-4x plus rapide que l'impression d'une table dans le journal)
+- dtVisualizeTable [beta] : Une manière améliorée d'imprimer les tableaux dans le journal, à la fois plus rapide, plus économe en mémoire et visuellement améliorée.
+- dtClearLog (ou 'cls') : Efface le fichier log.txt pour obtenir un nouveau journal (particulièrement utile lors de l'utilisation de la commande restart)
+
+# ATTENTION !
+Les commandes de la console pour redémarrer le jeu le feront -sans vous demander de sauvegarder votre progression d'abord. Vous risquez donc de perdre votre progression si vous n'êtes pas prudent !
+
+# SAUVEGARDE DES TABLES
+La commande 'dtSaveTable' vous permet d'enregistrer rapidement une table Lua sur le disque dans un fichier Lua bien formaté, ce qui signifie que vous pouvez charger ce fichier comme fichier source dans l'interpréteur Lua ou dans le jeu. Ceci a plusieurs utilisations, en particulier pour comprendre le modèle d'objet de FS.
+
+En option, vous pouvez choisir la profondeur de la sortie, ce qui est particulièrement important lorsque vous sauvegardez des tables de haut niveau (par exemple g_currentMission) qui peuvent contenir de nombreuses tables enfants et/ou de grandes tables. Grâce à un code bien optimisé, il est encore possible de sauvegarder g_currentMission avec quelques 5-6 niveaux de profondeur avant que le moteur Lua ne commence à fuir la mémoire et ne devienne instable (la profondeur par défaut est fixée à 2).
+
+Exemple :
+Pour sauvegarder la table g_currentMission dans un fichier, vous pouvez utiliser la commande 'dtSaveTable g_currentMission currentMission.lua 1'. Cela exporterait la table g_currentMission vers un fichier nommé 'currentMission.lua' et n'inclurait que les descendants directs de g_currentMission. 
+
+Remarque : en raison de restrictions de sécurité, le fichier .lua généré sera stocké dans votre dossier 'My Games/FarmingSimulator2022/modSettings/FS22_000_DevTools'. 
+
+# IMPRESSION DE TABLEAUX
+Tout comme 'dtSaveTable', la commande 'dtTable' peut être utilisée pour imprimer un tableau dans le journal. Elle prend le nom du tableau comme paramètre obligatoire et la profondeur maximale comme paramètre facultatif (avec une valeur par défaut de 2).
+
+Important ! En raison de la nature des impressions de FS dans le journal, il est recommandé de n'imprimer que des tableaux relativement petits et/ou des structures peu profondes (la profondeur ne doit pas dépasser 2-3). Par exemple, l'impression de g_currentMission sur la console avec une profondeur de 4 fera consommer à FS 10-15GB de mémoire système et le fera planter avec une erreur de mémoire insuffisante. 
+
+Si vous avez besoin d'imprimer une structure plus profonde, il est recommandé d'utiliser 'dtSaveTable'.
+]]></fr>
+    </description>
+    <iconFilename>icon_000_DevTools.dds</iconFilename>
+    <multiplayer supported="true" />
+    <extraSourceFiles>
+        <sourceFile filename="lib/LogHelper.lua" />
+        <sourceFile filename="lib/ModHelper.lua" />
+        <sourceFile filename="DevTools.lua" />
+    </extraSourceFiles>
+</modDesc>

@@ -1,0 +1,24 @@
+- [ ] Prepare your mod
+  - [ ] Uncomment the code and rename the base mod object in the 'YOURMOD_RENAME_THIS_FILE.lua' file (only applicable if your mod contains scripts)
+  - [ ] Rename the file 'YOURMOD_RENAME_THIS_FILE.lua' to a suitable name for your mod (or remove if you don't have any scripts)
+  - [ ] Change the reference to the renamed 'YOURMOD_RENAME_THIS_FILE.lua' in modDesc.xml (section '<extraSourceFiles>')
+- [ ] Build your mod
+- [ ] Release your mod (checklist)
+  - [ ] Add a english title for the mod in modDesc.xml
+  - [ ] Add a english description of the mod in modDesc.xml
+  - [ ] Add tranlsation for title and description in modDesc.xml (atleast one additional language, either german or french)
+  - [ ] Make sure the lines in the description do not begin with any whitespace (space, tab etc)
+  - [ ] Create modIcons.dds (preferably from template modIcon.pdn, opens in Paint.NET)
+    - [ ] Save in DDS format
+    - [ ] Size must be exactly 256x256 px
+    - [ ] Icon should be saved as DX1 without mipmaps
+    - [ ] Icon should have the grey template background from Giants (included in the .pdn template)
+  - [ ] Ensure that any eventual store icons follow the guidelines
+    - [ ] Saved in DDS format
+    - [ ] Size is exactly 512x512 px
+    - [ ] Saved as DX5 without mipmaps
+  - [ ] Is keybidnings (actions), store categories and general texts handled via l10n texts
+  - [ ] Create zip file with all files in the mod folder
+    - [ ] Remove this TODO file from generated zip file
+    - [ ] IMPORTANT! Verify that language files are included in zip-file
+  
