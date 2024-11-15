@@ -4,7 +4,7 @@
 SET "ACTION=release"
 
 :: MOD FOLDER NAME (e.g. FS22_YOUR-MOD-NAME)
-SET "FOLDER_NAME=FS22_000_DevTools"
+SET "FOLDER_NAME=FS25_000_DevTools"
 
 :: MOD OUTPUT NAME (e.g. FS22_YOUR-MOD-NAME, defaults to the mod folder name)
 SET "OUTPUT_NAME=%FOLDER_NAME%"
