@@ -30,7 +30,7 @@ local function getOrInitGlobalMod(name)
     return g_globalMods[name]
 end
 
-_G.g_powerTools = getOrInitGlobalMod("FS22_PowerTools")
+_G.g_powerTools = getOrInitGlobalMod("FS25_PowerTools")
 
 local function safeAddConsoleCommand(name, description, ...)
     g_powerTools.registeredConsoleCommands = g_powerTools.registeredConsoleCommands or {}
