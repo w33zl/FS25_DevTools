@@ -2,7 +2,7 @@
 
 DevHelper (Weezls Mod Lib for FS22) - A utility "class" to assist mod development
 
-Author:     w33zl (github.com/w33zl | facebook.com/w33zl)
+Author:     w33zl (github.com/w33zl)
 Version:    1.2
 Modified:   2023-08-10
 
@@ -46,7 +46,7 @@ function DevHelper.measureStart(formatString)
         startTime = getTimeSec(),
         stop = function(self, noPrint)
             self.endTime = getTimeSec()
-            self.diff = self.endTime - self.startTime
+            self.diff = (self.endTime - self.startTime) -- Should be seconds
             self.results = string.format(formatString, self.diff)
             if not noPrint then
                 print(self.results)
