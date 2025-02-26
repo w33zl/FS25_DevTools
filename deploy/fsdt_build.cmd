@@ -9,8 +9,8 @@ echo * FS DevTools: Build Command - Created by w33zl (WZL Modding) *
 echo ***************************************************************
 
 :: ### CONSTANTS & CONFIG ###
-SET "TESTRUNNER_DIR=G:\Spel\Farming Simulator 2022\testrunner"
-SET "GAME_DIR=G:\Spel\Farming Simulator 2022"
+SET "TESTRUNNER_DIR=E:\Spel\Farming Simulator 2025\testRunner"
+SET "GAME_DIR=E:\Spel\Farming Simulator 2025"
 SET "MODS_DIR=E:\Spel\Farming Simulator 2022 Mods"
 
 
