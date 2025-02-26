@@ -334,6 +334,10 @@ local DevToolsConsoleCommands = {
     testCommand = function (self)
         print("do nothing")
     end,
+    clearLogAndConsole = function (self)
+        self:clearLog()
+        executeConsoleCommand("clear")
+    end,
     clearLog = function (self)
         --TODO: add log rotator? maybe via config?
         local originalLogFile = getUserProfileAppPath() .. "log.txt"
@@ -407,7 +411,14 @@ function DevTools:beforeLoadMap()
 
     addConsoleCommand("dtTest", "", "testCommand", DevToolsConsoleCommands)
     addConsoleCommand("dtClearLog", "", "clearLog", DevToolsConsoleCommands)
-    addConsoleCommand("cls", "", "clearLog", DevToolsConsoleCommands)
+
+    xpcall(function()
+        removeConsoleCommand("cls")
+        addConsoleCommand("cls", "", "clearLogAndConsole", DevToolsConsoleCommands)
+    end, function(err)
+        
+    end)
+    
 
     addConsoleCommand("q", "", "exitGame", DevToolsConsoleCommands)
 end
