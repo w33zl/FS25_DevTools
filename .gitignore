@@ -11,3 +11,5 @@ FS25_000_DevTools/modDesc.build
 .env
 debug.log
 FS25_000_DevTools/modDesc.xml.bak
+screenshots/*
+Wiki/*
