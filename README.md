@@ -1,7 +1,9 @@
 # DEVELOPER POWERTOOLS
 [Download](https://www.farming-simulator.com/mod.php?mod_id=303447&title=fs2025)
 
-![alt text](FS25_WzlModding_DevTools_Screenshot.jpg)
+
+![alt text](FS25_WzlModding_DevTools_Screenshot.JPG)
+
 
 Developer PowerTools is a quality-of-life mod for modders that works well alongside Power Tools, Easy Dev Controls, Global Explorer and similar mods. 
 
